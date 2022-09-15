@@ -1,6 +1,6 @@
 *{
     margin: 0;
-    padding: 0; 
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -11,7 +11,13 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#container{
+#containerLogin{
+    width: 400px;
+    margin: 0px auto;
+    margin-top: 100px
+}
+
+#containerRegistro{
     width: 400px;
     margin: 0px auto;
 }
@@ -33,7 +39,9 @@ footer{
     line-height: 50px;
     background: grey;
     margin-top: 10px;
-    
+    bottom: 0;
+    position: absolute;
+    width: 100%;
 }
 
 .controles{
@@ -46,8 +54,18 @@ footer{
     color: #eee;
 }
 
+.controles:hover{
+    width: 100%;
+    background-color: rgb(24, 26, 27);
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid rgb(168, 157, 1);;
+    color: #eee;
+}
+
 .formulario a{
-    color: blue;
+    color:  rgb(109, 109, 109);
     text-decoration: none;
 }
 
@@ -66,6 +84,17 @@ footer{
     border: none;
     padding: 12px;
     color: white;
+    margin: 16px 0;
+    font-size: 16px;
+
+}
+
+.formulario .botones:hover{
+    width: 100%;
+    background: rgb(168, 157, 1);
+    border: none;
+    padding: 12px;
+    color: rgb(2, 66, 18);
     margin: 16px 0;
     font-size: 16px;
 
