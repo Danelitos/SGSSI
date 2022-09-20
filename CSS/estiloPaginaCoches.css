@@ -22,3 +22,18 @@ footer{
     position: absolute;
     width: 100%;
 }
+
+nav{
+    background: rgb(47, 48, 49);
+    height: 50px;
+}
+
+nav ul li{
+    float: left;
+    list-style: none;
+    margin: 10px;
+}
+.logo img{
+    width: 50px;
+    height: 40px;
+}
