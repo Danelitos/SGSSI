@@ -22,6 +22,10 @@ body{
     margin: 0px auto;
 }
 
+@media (min-widht:991px) {
+    
+}
+
 header{
     height: 100px;
     width: 800px;
@@ -100,6 +104,7 @@ footer{
     font-size: 16px;
 
 }
+
 .animacion{
     height: 200px;
     margin-top: 123px;
