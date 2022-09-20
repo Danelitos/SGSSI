@@ -6,8 +6,8 @@ include('conexion.php');
     <head>
         <meta charset="utf-8" />
         <title>Coches.eus</title>
-        <link rel="stylesheet" href="../CSS/estilo.css" />
-        <link rel="icon" href="../img/coche1.ico">
+        <link rel="stylesheet" href="CSS/estilo.css" />
+        <link rel="icon" href="img/coche1.ico">
     </head>
     <body>
         <div id="containerLogin">
@@ -21,14 +21,13 @@ include('conexion.php');
                 <label>Contraseña</label>
                 <input class="controles" placeholder="Ingerese su contraseña (8 caracteres mínimo)" type="password" minlength="8" required/> <br />
                 <input class="botones" type="submit" value="Iniciar sesión" /> <br />
-
-                <a href="cambioContraseña.html"><p>¿Olvidaste la contraseña?</p></a> <br />
-                <a href="registro.html"><p>Crear una cuenta</p></a> <br />
-                <a href="coches.html"><p>Página COCHES</p></a>
+                <a href="cambioContraseña.php"><p>¿Olvidaste la contraseña?</p></a> <br />
+                <a href="registro.php"><p>Crear una cuenta</p></a> <br />
+                <a href="coches.php"><p>Página COCHES</p></a>
             </section>
         </div>
         <marquee class="animacion" scrollamount="90" direction="right" width="100%">
-            <img src="../img/formula.gif" width="150px" height="150px" />
+            <img src="img/formula.gif" width="150px" height="150px" />
         </marquee>
         <footer>
             &copy; 2022 Copyrigth: Coches.com

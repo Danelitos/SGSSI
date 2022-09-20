@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8" />
         <title>Coches.eus</title>
-        <link rel="stylesheet" href="../CSS/estilo.css" />
-        <link rel="icon" href="../img/coche1.ico">
+        <link rel="stylesheet" href="CSS/estilo.css" />
+        <link rel="icon" href="img/coche1.ico">
     </head>
     <body>
         <div id="containerRegistro">
@@ -29,7 +29,7 @@
             <input class="controles" placeholder="Ingerese su contraseña (8 caracteres mínimo)" type="password" minlength="8" required/> <br />
             <input class="botones" type="submit" value="Crear Cuenta" />
 
-            <a href="index.html"><p>¿Ya tienes una cuenta personal?</p></a>
+            <a href="index.php"><p>¿Ya tienes una cuenta personal?</p></a>
         </form>
 
 

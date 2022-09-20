@@ -7,7 +7,7 @@ web:
    links:
      - db
    volumes:
-     - ./php:/var/www/html/
+     - ./app:/var/www/html/
 
 db:
   image: mariadb:10.8.2

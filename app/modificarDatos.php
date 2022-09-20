@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8" />
         <title>Coches.eus</title>
-        <link rel="stylesheet" href="../CSS/estilo.css" />
-        <link rel="icon" href="../img/coche1.ico">
+        <link rel="stylesheet" href="CSS/estilo.css" />
+        <link rel="icon" href="img/coche1.ico">
     </head>
     <body>
         <div id="containerRegistro">
