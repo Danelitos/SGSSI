@@ -6,12 +6,9 @@ if (!empty($_POST["botonIniciar"])){
     if (!empty($_POST["email"]) and !empty($_POST["password"])){
         $correo=$_POST["email"];
         $contraseña=$_POST["password"];
-        var_dump($correo);
-        var_dump($contraseña);
         $sql=$conn->query("SELECT * FROM `usuarios` WHERE Email='$correo' AND Contraseña='$contraseña'");
-        var_dump($sql);
         if ($datos=$sql->fetch_object()){
-            header("Location: coches.php");
+            header('location:coches.php');
         }
         else{
             echo '<div class="alert alert-danger">ACCESO DENEGADO</div>';

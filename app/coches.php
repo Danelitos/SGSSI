@@ -18,7 +18,7 @@
                 </label>
                 <a href="coches.php">Inicio</a>
                 <a href="modificarDatos.php">Modificar datos</a>
-                <a href="index.`php`">Cerrar sesión</a>
+                <a href="index.php">Cerrar sesión</a>
               </nav>
             <div class="card bg-dark text-white" style="width: 18rem;">
                 <img class="card-img-top" src="img/coche.jpg" alt="Card image cap">

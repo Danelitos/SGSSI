@@ -1,8 +1,7 @@
 <?php
 
   require 'conexion.php';
-
-  $message = '';
+  $conn->set_charset("utf8");
 
   if (!empty($_POST['nombre']) && !empty($_POST['apellidos']) && !empty($_POST['dni']) && !empty($_POST['telefono']) && !empty($_POST['email']) && !empty($_POST['password'])) {
     $nombre=$_POST['nombre'];
@@ -11,14 +10,14 @@
     $telefono=$_POST['telefono'];
     $fechanacimiento=$_POST['fechanacimiento'];
     $email=$_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $password = $_POST['password'];
+    //$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+
     
     
     $sql = "INSERT INTO `usuarios` (Nombre,Apellidos,Dni,Telefono,Email,Fecha_Ncto,Contraseña) VALUES (?,?,?,?,?,?,?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param('sssssss', $nombre,$apellidos,$dni,$telefono,$fechanacimiento,$email,$password);
-
-
+    $stmt->bind_param('sssssss', $nombre,$apellidos,$dni,$telefono,$email,$fechanacimiento,$password);
     if ($stmt->execute()) {
       $message = 'Successfully created new user';
     } else {
