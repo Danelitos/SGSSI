@@ -1,6 +1,8 @@
 <?php
 require 'conexion.php';
 $conn->set_charset("utf8");
+session_start();
+$_SESSION["miSesion"]=array();
 
 if (!empty($_POST["botonIniciar"])){
     if (!empty($_POST["email"]) and !empty($_POST["password"])){
@@ -15,6 +17,9 @@ if (!empty($_POST["botonIniciar"])){
         }
     }
 }
+
+$_SESSION["miSesion"][0]=$correo;
+$_SESSION["miSesion"][1]=$password;
 
 ?>
 <!DOCTYPE html>

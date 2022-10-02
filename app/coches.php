@@ -16,9 +16,14 @@
                 <label class="logo">
                     <a href="#"><img src="img/coche1.png" alt=""></a>
                 </label>
-                <a href="coches.php">Inicio</a>
-                <a href="modificarDatos.php">Modificar datos</a>
-                <a href="index.php">Cerrar sesión</a>
+                <div class="btn-container">
+                    <button type="button" class="btn nombre">Perfil</button>
+                    <div class="menu">
+                        <a href="modificarDatos.php">Modificar datos</a>
+                        <a href="index.php">Cerrar sesión</a>
+                    </div>
+                    
+                </div>
               </nav>
             <div class="card bg-dark text-white" style="width: 18rem;">
                 <img class="card-img-top" src="img/coche.jpg" alt="Card image cap">
@@ -27,7 +32,7 @@
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                   <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
-              </div>
+            </div>
         </div>
         <footer>
             &copy; 2022 Copyrigth: Coches.com
