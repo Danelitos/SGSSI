@@ -56,7 +56,7 @@
             <label>Correo electrónico</label>
             <input class="controles" placeholder="ejemplo@servidor.extension" type="email" minlength="3" name="email"/> <br />
             <label>Contraseña</label>
-            <input class="controles" placeholder="Ingerese su contraseña (8 caracteres mínimo)" type="password" minlength="8" required name="password"/> <br />
+            <input class="controles" placeholder="Ingerese su contraseña (8 caracteres mínimo)" type="password" minlength="8" name="password"/> <br />
             <input class="botones" type="submit" value="Crear Cuenta" name="botonCrear"/>
 
             <a href="index.php"><p>¿Ya tienes una cuenta personal?</p></a>

@@ -3,7 +3,7 @@ require 'conexion.php';
 $conn->set_charset("utf8");
 session_start();
 $_SESSION["miSesion"]=array();
-
+echo $_SESSION["miSesion"][0];
 if (!empty($_POST["botonIniciar"])){
     if (!empty($_POST["email"]) and !empty($_POST["password"])){
         $correo=$_POST["email"];
@@ -44,7 +44,6 @@ $_SESSION["miSesion"][1]=$password;
                 <input class="botones" type="submit" value="Iniciar sesión" name="botonIniciar"/> <br />
                 <a href="cambioContraseña.php"><p>¿Olvidaste la contraseña?</p></a> <br />
                 <a href="registro.php"><p>Crear una cuenta</p></a> <br />
-                <a href="coches.php"><p>Página COCHES</p></a>
             </section>
         </div>
         <marquee class="animacion" scrollamount="90" direction="right" width="100%">
