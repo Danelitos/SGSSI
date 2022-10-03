@@ -7,12 +7,12 @@ $ docker build -t="web" .  # si la imagen no está construida
 ```
 Introduce el siguiente comando para iniciar los contenedores:
 ```
-$ docker-compose up -d
+$ docker-compose up 
 ```
 Para parar los servicios, en otra terminal:
 ```
-$ docker-compose dow
+$ docker-compose down
 ```
 Una vez iniciado los servicios deberían funcionar las siguientes urls:
-* Para visitar la web: (http://localhost:81)
-* Para añadir los datos necesarios: (http://localhost:8890) (Tal y como lo hemos definido en docker-compose.yml, usuario “admin”, password “test”). Haz click en “database” y luego en “import”, desde donde elegimos el archivo SGSSI/databaseWeb.sql
+* Para visitar la web: http://localhost:81
+* Para añadir los datos necesarios: http://localhost:8890 (Tal y como lo hemos definido en docker-compose.yml, usuario “admin”, password “test”). Haz click en “database” y luego en “import”, desde donde elegimos el archivo SGSSI/databaseWeb.sql
