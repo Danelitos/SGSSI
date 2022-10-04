@@ -32,6 +32,7 @@
         <title>Coches.eus</title>
         <link rel="stylesheet" href="CSS/estilo.css" />
         <link rel="icon" href="img/coche1.ico">
+        
     </head>
     <body>
         <?php if(!empty($message)): ?>
@@ -42,24 +43,27 @@
                 <h1>Crear cuenta personal </h1>
             </header>
         
-        <form class="formulario" method="POST">
+        <form class="formulario" method="POST" onsubmit="return validarFormulario()" id="formulario">
             <label>Nombre</label>
-            <input class="controles" placeholder="Ingerese su nombre" type="text" minlength="3" name="nombre"/> <br />
+            <input class="controles" placeholder="Ingerese su nombre" type="text" id="nombre" name="nombre"/> <br />
             <label>Apellidos</label>
-            <input class="controles" placeholder="Ingerese sus apellidos" type="text" minlength="3" name="apellidos"/> <br />
+            <input class="controles" placeholder="Ingerese sus apellidos" type="text" id="apellidos" name="apellidos"/> <br />
             <label>DNI</label>
-            <input class="controles" placeholder="Ejemplo: 11111111-Z" type="text" pattern="[0-9]{8}\-[A-Z]" minlength="10" maxlength="10" name="dni"/> <br />
+            <input class="controles" placeholder="Ejemplo: 11111111-Z" id="dni" name="dni"/> <br />
             <label>Teléfono</label>
-            <input class="controles" placeholder="Ingerese su telefono" type="tel" pattern="[0-9]{9}" minlength="9" maxlength="9" name="telefono"/> <br />
+            <input class="controles" placeholder="Ingerese su telefono" id="telefono" name="telefono"/> <br />
             <label>Fecha de nacimiento</label>
-            <input class="controles"  type="date" min="1900-01-01" name="fechanacimiento"/> <br />
+            <input class="controles"  type="date" min="1900-01-01" id="fechanacimiento" name="fechanacimiento"/> <br />
             <label>Correo electrónico</label>
-            <input class="controles" placeholder="ejemplo@servidor.extension" type="email" minlength="3" name="email"/> <br />
+            <input class="controles" placeholder="ejemplo@servidor.extension" id="email" name="email"/> <br />
             <label>Contraseña</label>
-            <input class="controles" placeholder="Ingerese su contraseña (8 caracteres mínimo)" type="password" minlength="8" name="password"/> <br />
-            <input class="botones" type="submit" value="Crear Cuenta" name="botonCrear"/>
+            <input class="controles" placeholder="Ingerese su contraseña (8 caracteres mínimo)" type="password" id="password" name="password"/> <br />
+            <input class="botones" type="submit" value="Crear Cuenta" id="botonCrear"/>
+            
+            <!––antes de enviar a la base de datos, se comprueban que los datos son correctos -->
 
             <a href="index.php"><p>¿Ya tienes una cuenta personal?</p></a>
+            <script src="formulario.js"></script>
         </form>
 
 
