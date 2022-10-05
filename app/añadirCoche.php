@@ -13,7 +13,7 @@
     
     $sql = "INSERT INTO `coches` (Nombre,Marca,Color,Caballos,Precio) VALUES (?,?,?,?,?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param('sssss', $nombreCoche,$marca,$color,$caballos,$precio);
+    $stmt->bind_param('ssssd', $nombreCoche,$marca,$color,$caballos,$precio);
     if ($stmt->execute()) {
       $message = 'Coche añadido con exito.';
     } else {
