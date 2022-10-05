@@ -27,21 +27,20 @@ session_start();
             </label>
             <a class="nav-link" href="añadirCoche.php">Añadir coche</a>
             <a class="nav-link" href="modificarDatos.php">Modificar datos</a>
-            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        Perfil
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="modificarDatos.php">Modificar datos</a></li>
-                        <li><a class="dropdown-item" href="index.php">Cerrar sesión</a></li>
-                    </ul>
-                </div>
+            <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown button
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
             </div>
         </nav>
 
         <table>
-            <tr><th colspan="6"><h1>Catalogo Coches</h1></th></tr>
+            <tr><th colspan="7"><h1>Catalogo Coches</h1></th></tr>
             <tr>
                 <td>Id</td>
                 <td>Nombre</td>
@@ -49,6 +48,7 @@ session_start();
                 <td>Color</td>
                 <td>Caballos</td>
                 <td>Precio</td>
+                <td>Acción</td>
             </tr>
             <?php
                 $sql="SELECT * FROM `coches`";
@@ -62,7 +62,10 @@ session_start();
                 <td><?php echo $mostrar['Color'] ?></td>
                 <td><?php echo $mostrar['Caballos'] ?></td>
                 <td><?php echo $mostrar['Precio'] ?></td>
-                <td><?php echo "<a class='botones' href='modificarDatosCoche.php'>Modificar Datos</a>" ?></td>
+                <td>
+                    <?php echo "<a href='modificarDatosCoche.php'><button class='botonModificar'>Modificar Datos</button></a>" ?>
+                    <?php echo "<a href='index.php'><button class='botonEliminar'>Eliminar Coche</button></a>" ?>
+                </td>
             </tr>
             <?php
                 }
