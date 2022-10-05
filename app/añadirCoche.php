@@ -13,11 +13,12 @@
     
     $sql = "INSERT INTO `coches` (Nombre,Marca,Color,Caballos,Precio) VALUES (?,?,?,?,?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param('ssssd', $nombreCoche,$marca,$color,$caballos,$precio);
+    $stmt->bind_param('sssid', $nombreCoche,$marca,$color,$caballos,$precio);
     if ($stmt->execute()) {
-      $message = 'Coche añadido con exito.';
+      echo '<div class="alert alert-danger">Se ha añadido con éxito el coche</div>';
     } else {
-      $message = 'No se ha podido añadir el coche';
+      echo '<div class="alert alert-danger">No se ha podido añadir el coche</div>';
+
     }
   }
 ?>
