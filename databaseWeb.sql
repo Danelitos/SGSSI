@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: db
--- Tiempo de generación: 05-10-2022 a las 09:31:00
+-- Tiempo de generación: 06-10-2022 a las 10:16:14
 -- Versión del servidor: 10.8.2-MariaDB-1:10.8.2+maria~focal
 -- Versión de PHP: 8.0.19
 
@@ -33,7 +33,7 @@ CREATE TABLE `coches` (
   `Marca` varchar(20) NOT NULL,
   `Color` varchar(10) NOT NULL,
   `Caballos` int(3) NOT NULL,
-  `Precio` decimal(10,0) NOT NULL
+  `Precio` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
