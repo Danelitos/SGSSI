@@ -110,3 +110,11 @@ footer{
     height: 200px;
     margin-top: 123px;
 }
+
+p{
+    color: green;
+    margin-left: 10px;
+    margin-right: 10px;
+    align-items: center;
+
+}

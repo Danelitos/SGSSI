@@ -61,12 +61,12 @@ $coche = "SELECT * FROM coches WHERE Id = $id";
             ?>
             <tr>
                 
-                <td><?php echo $mostrar['Nombre'] ?></td>
-                <td><?php echo $mostrar['Marca'] ?></td>
-                <td><?php echo $mostrar['Color'] ?></td>
-                <td><?php echo $mostrar['Caballos'] ?></td>
-                <td><?php echo $mostrar['Precio'] ?></td>
-                <td><a class="botonModificar" href="modificarDatosCoche.php?Id=<?php echo $mostrar['Id']; ?>">Modificar
+                <td class="texto"><?php echo $mostrar['Nombre'] ?></td>
+                <td class="texto"><?php echo $mostrar['Marca'] ?></td>
+                <td class="texto"><?php echo $mostrar['Color'] ?></td>
+                <td class="texto"><?php echo $mostrar['Caballos'] ?></td>
+                <td class="texto"><?php echo $mostrar['Precio'] ?></td>
+                <td class="botones"><a class="botonModificar" href="modificarDatosCoche.php?Id=<?php echo $mostrar['Id']; ?>">Modificar
 
                 <a onclick="confirmacion(event)" class ="botonEliminar" href="eliminar.php?Id=<?php echo $mostrar['Id']; ?>"> <img class="logoPapelera" src="img/papelera.png" alt=""></td>
 

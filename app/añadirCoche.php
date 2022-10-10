@@ -15,9 +15,9 @@
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('sssid', $nombreCoche,$marca,$color,$caballos,$precio);
     if ($stmt->execute()) {
-      echo '<div class="alert alert-danger">Se ha añadido con éxito el coche</div>';
+      $message='<div class="alert alert-danger">Se ha añadido con éxito el coche</div>';
     } else {
-      echo '<div class="alert alert-danger">No se ha podido añadir el coche</div>';
+      $message='<div class="alert alert-danger">No se ha podido añadir el coche</div>';
 
     }
   }
@@ -51,6 +51,9 @@
             <input class="controles" placeholder="Ingerese los caballos" type="text" pattern="[0-9]{3}" minlength="2" maxlength="3" name="caballos" /> <br />
             <label>Precio</label>
             <input class="controles" placeholder="Ingerese el precio" type="text" pattern="[0-9]{6}\,[0-9]{2}" minlength="2" name="precio" /> <br />
+            <?php if(!empty($message)): ?>
+            <p> <?= $message ?></p>
+            <?php endif; ?>
             <input class="botones" type="submit" value="Añadir Coche" name="botonAñadir" />
             <a href="coches.php"><p>Volver</p></a>
         </form>

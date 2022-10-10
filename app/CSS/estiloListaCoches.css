@@ -53,10 +53,12 @@ th{
     align-content: center;
 }
 
-.texto{
-    padding: 10px 40px;
-    text-align: center;
-    background: grey;
+td.texto{
+    font-weight: normal;
+}
+
+td.botones{
+    padding: 1px;
 }
 
 .logoPapelera{
