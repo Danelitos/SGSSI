@@ -35,9 +35,7 @@
         
     </head>
     <body>
-        <?php if(!empty($message)): ?>
-        <p> <?= $message ?></p>
-        <?php endif; ?>
+        <?php echo $message ?>
         <div id="containerRegistro">
             <header>
                 <h1>Crear cuenta personal </h1>
