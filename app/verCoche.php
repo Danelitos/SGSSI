@@ -2,6 +2,11 @@
 require 'conexion.php';
 $conn->set_charset("utf8");
 session_start();
+
+$id= $_GET["Id"];
+$coche = "SELECT * FROM coches WHERE Id = $id";
+
+
 ?>
 
 <!DOCTYPE html>
@@ -45,24 +50,29 @@ session_start();
         <table>
             <tr><th colspan="7"><h1>Catalogo Coches</h1></th></tr>
             <tr>
-                <td>Id</td>
+                
                 <td>Nombre</td>
                 <td>Marca</td>
-                
+                <td>Color</td>
+                <td>Caballos</td>
+                <td>Precio</td>
+                <td>Acción</td>
             </tr>
             <?php
-                $sql="SELECT * FROM `coches`";
-                $resultado=mysqli_query($conn,$sql);
+                
+                $resultado=mysqli_query($conn,$coche);
                 while($mostrar=mysqli_fetch_array($resultado)){
             ?>
             <tr>
                 
                 <td><?php echo $mostrar['Nombre'] ?></td>
                 <td><?php echo $mostrar['Marca'] ?></td>
-                
+                <td><?php echo $mostrar['Color'] ?></td>
+                <td><?php echo $mostrar['Caballos'] ?></td>
+                <td><?php echo $mostrar['Precio'] ?></td>
+                <td><a href="modificarDatosCoche.php?Id=<?php echo $mostrar['Id']; ?>">Modificar
 
-                <td><a href="verCoche.php?Id=<?php echo $mostrar['Id']; ?>">Ver</td>
-                
+                <a onclick="confirmacion(event)" href="eliminar.php?Id=<?php echo $mostrar['Id']; ?>">Eliminar</td>
             </tr>
             <?php
                 }
