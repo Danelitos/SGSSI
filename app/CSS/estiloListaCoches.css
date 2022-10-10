@@ -33,13 +33,36 @@ th{
 .botonModificar{
     color: white;
     background-color: blue;
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: 7px;
+    padding: 7px;
+    margin-right: 10px;
 }
 
 .botonEliminar{
     color: white;
     background-color: red;
     border-radius: 10px;
-    padding: 10px;
+    padding: 7px;
+}
+
+.botonVer{
+    color: white;
+    background-color: rgb(168, 157, 1);
+    border-radius: 6px;
+    padding: 7px;
+    align-content: center;
+}
+
+.texto{
+    padding: 10px 40px;
+    text-align: center;
+    background: grey;
+}
+
+.logoPapelera{
+    width: 20px;
+}
+
+.logoLupa{
+    width: 20px;
 }

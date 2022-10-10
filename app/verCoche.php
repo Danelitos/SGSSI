@@ -13,39 +13,35 @@ $coche = "SELECT * FROM coches WHERE Id = $id";
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <title>Coches.eus</title>
-    <link rel="icon" href="img/coche1.ico">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="CSS/estiloPaginaCoches.css" />
-    <link rel="stylesheet" href="CSS/estiloListaCoches.css" />
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-    <script src="confirmacion.js"></script>
+        <meta charset="utf-8">
+        <link rel="icon" href="img/coche1.ico">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <title>Coches.eus</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="widht=device-width, initial-sacle=1">
+        <link rel="stylesheet" href="CSS/stylePaginaCoches.css" />
+        <link rel="stylesheet" href="CSS/estiloListaCoches.css" />
+        <script src="JS/confirmacion.js"></script>
     
 </head>
 
 <body>
-    <div id="container">
-        <nav class="navbar navbar-dark bg-dark">
-            <label class="logo">
-                <a href="#"><img src="img/coche1.png" alt=""></a>
-            </label>
-            <a class="nav-link" href="añadirCoche.php">Añadir coche</a>
-            <a class="nav-link" href="modificarDatos.php">Modificar datos</a>
+    <header>
+            <img class="logo" src="img/coche1.png" alt="">
+            <nav>
+                <ul class="nav_links">
+                    <li><a href="coches.php">Inicio</a></li>
+                    <li><a href="añadirCoche.php">Añadir Coche</a></li>
+                </ul>
+            </nav>
             <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown button
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
+                <a class="dropbtn" href="#"><button>Perfil</button></a>
+                <div class="dropdown-content">
+                    <a href="modificarDatos.php">Modificar Datos</a>
+                    <a href="index.php">Cerrar sesión</a>
+                </div>
             </div>
-        </nav>
+        </header>
 
         <table>
             <tr><th colspan="7"><h1>Catalogo Coches</h1></th></tr>
@@ -70,17 +66,18 @@ $coche = "SELECT * FROM coches WHERE Id = $id";
                 <td><?php echo $mostrar['Color'] ?></td>
                 <td><?php echo $mostrar['Caballos'] ?></td>
                 <td><?php echo $mostrar['Precio'] ?></td>
-                <td><a href="modificarDatosCoche.php?Id=<?php echo $mostrar['Id']; ?>">Modificar
+                <td><a class="botonModificar" href="modificarDatosCoche.php?Id=<?php echo $mostrar['Id']; ?>">Modificar
 
-                <a onclick="confirmacion(event)" href="eliminar.php?Id=<?php echo $mostrar['Id']; ?>">Eliminar</td>
+                <a onclick="confirmacion(event)" class ="botonEliminar" href="eliminar.php?Id=<?php echo $mostrar['Id']; ?>"> <img class="logoPapelera" src="img/papelera.png" alt=""></td>
+
             </tr>
             <?php
                 }
             ?>
         </table>
-    </div>
     <footer>
         &copy; 2022 Copyrigth: Coches.com
+    </footer>
 </body>
 
 </html>

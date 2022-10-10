@@ -61,6 +61,7 @@ if (!empty($_POST["botonModificar"])) {
             <label>Contraseña</label>
             <input class="controles" placeholder="Ingerese su contraseña (8 caracteres mínimo)" type="password" minlength="8" required name="password"/> <br />
             <input class="botones" type="submit" value="Guardar Cambios" name="botonModificar"/>
+            <a href="coches.php"><p>Volver</p></a>
         </form>
 
 
