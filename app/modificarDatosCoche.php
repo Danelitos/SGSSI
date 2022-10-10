@@ -2,6 +2,11 @@
 
 require 'conexion.php';
 $conn->set_charset("utf8");
+$id=$_GET["Id"];
+
+$coche = "SELECT * FROM coches WHERE Id = $id";
+
+
 session_start();
 if (!empty($_POST["botonModificar"])) {
     $nombre = $_POST['nombreCoche'];
@@ -10,19 +15,14 @@ if (!empty($_POST["botonModificar"])) {
     $caballos = $_POST['caballos'];
     $precio = $_POST['precio'];
 
-
-    $sql = $conn->query("SELECT Id FROM `coches` WHERE Nombre=''");
-    if (mysqli_num_rows($sql) > 0) {
-        $result = $sql->fetch_assoc();
-        $id = $result['Id'];
-        $sql = "UPDATE `coches` SET Nombre='$nombre',Marca='$marca',Color='$color',Caballos='$caballos',Precio='$precio' WHERE Id='$id'";
+    $sql = "UPDATE `coches` SET Nombre='$nombre',Marca='$marca',Color='$color',Caballos='$caballos',Precio='$precio' WHERE Id='$id'";
         if (mysqli_query($conn, $sql)) {
-            echo '<div class="alert alert-danger">Datos modificados con éxito</div>';
+            echo "<script> alert('Datos actualizados correctamente') </script>";
         } else {
-            echo '<div class="alert alert-danger">Error al modificar los datos</div>';
+            echo "<script> alert('Datos actualizados correctamente') </script>";
         }
-    }
 }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,22 +39,28 @@ if (!empty($_POST["botonModificar"])) {
         <header>
             <h1>Modificar datos coche </h1>
         </header>
-
+        <?php
+                
+                $resultado=mysqli_query($conn,$coche);
+                while($mostrar=mysqli_fetch_array($resultado)){
+            ?>
         <form class="formulario" method="POST">
             <label>Nombre</label>
-            <input class="controles" placeholder="Ingerese el nombre" type="text" minlength="3" name="nombreCoche" /> <br />
+            <input class="controles" type="text" value=<?php echo $mostrar['Nombre'] ?> minlength="3" name="nombreCoche" /> <br />
             <label>Marca</label>
-            <input class="controles" placeholder="Ingerese la marca" type="text" minlength="3" name="marca" /> <br />
+            <input class="controles" type="text" value=<?php echo $mostrar['Marca'] ?> minlength="3" name="marca" /> <br />
             <label>Color</label>
-            <input class="controles" type="color" name="color" /> <br />
+            <input class="controles" type="text" value=<?php echo $mostrar['Color'] ?> name="color" /> <br />
             <label>Caballos</label>
-            <input class="controles" placeholder="Ingerese los caballos" type="text" pattern="[0-9]{3}" minlength="2" maxlength="3" name="caballos" /> <br />
+            <input class="controles" type="text" value=<?php echo $mostrar['Caballos'] ?> pattern="[0-9]{3}" minlength="2" maxlength="3" name="caballos" /> <br />
             <label>Precio</label>
-            <input class="controles" placeholder="Ingerese el precio" type="text" pattern="[0-9]{6}\,[0-9]{2}" minlength="2" maxlength="9" name="precio" /> <br />
-            <input class="botones" type="submit" value="Añadir Coche" name="botonAñadir" />
+            <input class="controles" type="text" value=<?php echo $mostrar['Precio'] ?> pattern="[0-9]{6}\,[0-9]{2}" minlength="2" maxlength="9" name="precio" /> <br />
+            <input class="botones" type="submit" value="Actualizar datos" name="botonModificar" />
             <a href="coches.php"><p>Volver</p></a>
         </form>
-
+        <?php
+                }
+            ?>
 
     </div>
     <footer>
