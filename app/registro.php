@@ -63,7 +63,7 @@
             <!––antes de enviar a la base de datos, se comprueban que los datos son correctos -->
 
             <a href="index.php"><p>¿Ya tienes una cuenta personal?</p></a>
-            <script src="formulario.js"></script>
+            <script src="JS/formulario.js"></script>
         </form>
 
 
