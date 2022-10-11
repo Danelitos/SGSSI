@@ -51,7 +51,7 @@
             <label>Teléfono</label>
             <input class="controles" placeholder="Ingerese su telefono" id="telefono" name="telefono"/> <br />
             <label>Fecha de nacimiento</label>
-            <input class="controles"  type="date" min="1900-01-01" id="fechanacimiento" name="fechanacimiento"/> <br />
+            <input class="controles"  type="text" id="fechanacimiento" name="fechanacimiento"/> <br />
             <label>Correo electrónico</label>
             <input class="controles" placeholder="ejemplo@servidor.extension" id="email" name="email"/> <br />
             <label>Contraseña</label>
