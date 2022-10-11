@@ -56,6 +56,43 @@ function validarFormulario(){
         return false;
     }
     
+    // "2002-08-02"
+    if (fechaNac==null || fechaNac== ''){
+        return false;
+
+    }
+    else{
+        const fecha= fechaNac.split("-");
+        console.log(fecha.length);
+        if (fecha.length!=3){
+            alert('Formato de fecha no válido');
+            return false;
+        }
+        else{
+            //comprobar año
+            const año= fecha[0];
+
+            if (año<1900 || año>2022){
+                alert('Año de la fecha no válido');
+                return false;
+            }
+
+            //comprobar mes
+            const mes= fecha[1];
+            if (mes<1 || mes>12){
+                alert('Mes de la fecha no válido');
+                return false;
+            }
+
+            //comprobar dia
+            const dia= fecha[2];
+            if (dia<1 || dia>31){
+                alert('Dia de la fecha no válido');
+                return false;
+            }
+        }
+    }
+
     if (email==null || email== '' || !exprEmail.test(email)){
         alert('Email erroneo, formato no válido');
         return false;
@@ -71,11 +108,14 @@ function validarFormulario(){
     
 }
 
+/*
 function validarContraseña(){
+    console.log("hola");
     const email= document.getElementById('email').value;
     const password= document.getElementById('password').value;
     const Rpassword= document.getElementById('Rpassword').value;
     consog.log(password);
+
     if (email==null || email== '' || !exprEmail.test(email)){
         alert('Email erroneo, formato no válido');
         return false;
@@ -92,6 +132,7 @@ function validarContraseña(){
     }
     
     return true;
-    
+ 
     
 }
+*/
