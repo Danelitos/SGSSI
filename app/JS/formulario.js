@@ -19,13 +19,6 @@ function validarFormulario(){
     const fechaNac= document.getElementById('fechanacimiento').value;
     const email= document.getElementById('email').value;
     const password= document.getElementById('password').value;
-
-    console.log(nombre);
-    console.log(apellidos);
-    console.log(dni.length);
-    console.log(telefono.length);
-    console.log(telefono);
-    
     
 
     if (nombre=='' || nombre == null ||!patTexto.test(nombre)){
@@ -69,6 +62,31 @@ function validarFormulario(){
     }
 
     if (password==null || password=='' || password.length<8){
+        alert('Contraseña erronea, formato no válido');
+        return false;
+    }
+    
+    return true;
+    
+    
+}
+
+function validarContraseña(){
+    const email= document.getElementById('email').value;
+    const password= document.getElementById('password').value;
+    const Rpassword= document.getElementById('Rpassword').value;
+    consog.log(password);
+    if (email==null || email== '' || !exprEmail.test(email)){
+        alert('Email erroneo, formato no válido');
+        return false;
+    }
+
+    if (password==null || password=='' || password.length<8){
+        alert('Contraseña erronea, formato no válido');
+        return false;
+    }
+
+    if (Rpassword==null || Rpassword=='' || Rpassword.length<8){
         alert('Contraseña erronea, formato no válido');
         return false;
     }

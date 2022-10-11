@@ -32,7 +32,7 @@
         <title>Coches.eus</title>
         <link rel="stylesheet" href="CSS/estilo.css" />
         <link rel="icon" href="img/coche1.ico">
-        
+        <script src="JS/formulario.js"></script>
     </head>
     <body>
         <?php echo $message ?>
@@ -59,9 +59,8 @@
             <input class="botones" type="submit" value="Crear Cuenta" id="botonCrear"/>
             
             <!––antes de enviar a la base de datos, se comprueban que los datos son correctos -->
-
+    
             <a href="index.php"><p>¿Ya tienes una cuenta personal?</p></a>
-            <script src="JS/formulario.js"></script>
         </form>
 
 
