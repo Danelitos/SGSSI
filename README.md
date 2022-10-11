@@ -1,5 +1,8 @@
 # Coches Docker
 Este proyecto se trata de una aplicación web sobre coches alojada en un conjunto de servicios corriendo en contenedores Docker. Mediante docker-compose podemos definir un grupo de servicios que se ejecuten a la vez de manera  coordinada, basándose cada servicio en una imagen Docker. En concreto, este sistema está basado en una arquitectura Linux + Apache + MariaDB (MySQL) + PHP 7.2 en Docker Compose.
+```
+Intengrantes del proyecto --> Danel Alonso, Adrián Cuadrón y Oier Arribas.
+```
 # Instrucciones para desplegar el proyecto:
 Introduce el siguiente comando para construir la imagen web:
 ```

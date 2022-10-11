@@ -36,19 +36,20 @@ if (!empty($_POST["botonCambiar"])){
         <title>Coches.eus</title>
         <link rel="stylesheet" href="CSS/estilo.css" />
         <link rel="icon" href="img/coche1.ico">
+        <script src="JS/formulario.js"></script>
     </head>
     <body>
         <div id="containerLogin">
             <header>
                 <h1>Cambio de contraseña</h1>
             </header>
-            <form class="formulario" method="POST">
+            <form class="formulario" method="POST" onsubmit="return validarContraseña()" id="formulario">
                 <label>Correo electrónico</label>
-                <input class="controles" placeholder="ejemplo@servidor.extension" type="email" minlength="3" name="email"/> <br />
+                <input class="controles" placeholder="ejemplo@servidor.extension" type="email" id="email" name="email"/> <br />
                 <label>Contraseña nueva</label>
-                <input class="controles" placeholder="Ingerese su contraseña nueva (8 caracteres mínimo)" type="password" minlength="8" required name="password"/> <br />
+                <input class="controles" placeholder="Ingerese su contraseña nueva (8 caracteres mínimo)" type="password" id="password" name="password"/> <br />
                 <label>Repetir contraseña nueva</label>
-                <input class="controles" placeholder="Ingerese de nuevo su contraseña nueva (8 caracteres mínimo)" type="password" minlength="8" required name="Rpassword"/> <br />
+                <input class="controles" placeholder="Ingerese de nuevo su contraseña nueva (8 caracteres mínimo)" type="password" id="Rpassword" name="Rpassword"/> <br />
                 <?php if(!empty($message)): ?>
                 <p> <?= $message ?></p>
                 <?php endif; ?>
