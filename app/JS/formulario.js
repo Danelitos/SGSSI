@@ -1,6 +1,6 @@
 
 const entrar=true;
-const patTexto = new RegExp(/^[A-Z]+$/i); //solo texto
+const patTexto = new RegExp("^[a-zA-Z ]+$"); //solo texto
 
 var numero
 var letr
@@ -92,6 +92,8 @@ function validarFormulario(){
             }
         }
     }
+
+    //comprobar que el correo no existe por otro usuario
 
     if (email==null || email== '' || !exprEmail.test(email)){
         alert('Email erroneo, formato no válido');
