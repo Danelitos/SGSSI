@@ -43,7 +43,7 @@ if (!empty($_POST["botonModificar"])) {
                 
                 $resultado=mysqli_query($conn,$coche);
                 while($mostrar=mysqli_fetch_array($resultado)){
-            ?>
+        ?>
         <form class="formulario" method="POST">
             <label>Nombre</label>
             <input class="controles" type="text" value=<?php echo $mostrar['Nombre'] ?> minlength="3" name="nombreCoche" /> <br />
@@ -59,8 +59,8 @@ if (!empty($_POST["botonModificar"])) {
             <a href="coches.php"><p>Volver</p></a>
         </form>
         <?php
-                }
-            ?>
+            }
+        ?>
 
     </div>
     <footer>
