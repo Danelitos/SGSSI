@@ -47,13 +47,13 @@
             <label>Apellidos</label>
             <input class="controles" placeholder="Ingerese sus apellidos" type="text" id="apellidos" name="apellidos"/> <br />
             <label>DNI</label>
-            <input class="controles" placeholder="Ejemplo: 11111111-Z" id="dni" name="dni"/> <br />
+            <input class="controles" type="text" placeholder="Ejemplo: 11111111-Z" id="dni" name="dni"/> <br />
             <label>Teléfono</label>
-            <input class="controles" placeholder="Ingerese su telefono" id="telefono" name="telefono"/> <br />
+            <input class="controles" type="tel" placeholder="Ingerese su telefono" id="telefono" name="telefono"/> <br />
             <label>Fecha de nacimiento</label>
-            <input class="controles"  type="text" id="fechanacimiento" name="fechanacimiento"/> <br />
+            <input class="controles"  type="text" placeholder="Ejemplo: 2008-12-12" id="fechanacimiento" name="fechanacimiento"/> <br />
             <label>Correo electrónico</label>
-            <input class="controles" placeholder="ejemplo@servidor.extension" id="email" name="email"/> <br />
+            <input class="controles" type="email" placeholder="ejemplo@servidor.extension" id="email" name="email"/> <br />
             <label>Contraseña</label>
             <input class="controles" placeholder="Ingerese su contraseña (8 caracteres mínimo)" type="password" id="password" name="password"/> <br />
             <input class="botones" type="submit" value="Crear Cuenta" id="botonCrear"/>
