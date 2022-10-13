@@ -13,15 +13,20 @@
     $password = $_POST['password'];
     //$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
-    
-    
-    $sql = "INSERT INTO `usuarios` (Nombre,Apellidos,Dni,Telefono,Email,Fecha_Ncto,Contraseña) VALUES (?,?,?,?,?,?,?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param('sssssss', $nombre,$apellidos,$dni,$telefono,$email,$fechanacimiento,$password);
-    if ($stmt->execute()) {
-      $message = 'Successfully created new user';
-    } else {
-      $message = 'Sorry there must have been an issue creating your account';
+  
+    $sql = $conn->query("SELECT Id FROM `usuarios` WHERE Email='$email'");
+    if (mysqli_num_rows($sql) > 0) {
+      $message = 'El gmail introducido ya se encuentra registrado en la base de datos';}
+    else{
+
+      $sql = "INSERT INTO `usuarios` (Nombre,Apellidos,Dni,Telefono,Email,Fecha_Ncto,Contraseña) VALUES (?,?,?,?,?,?,?)";
+      $stmt = $conn->prepare($sql);
+      $stmt->bind_param('sssssss', $nombre,$apellidos,$dni,$telefono,$email,$fechanacimiento,$password);
+      if ($stmt->execute()) {
+        $message = 'La cuenta se ha creado correctamente.';
+      } else {
+          $message = 'Lo sentimos, no se ha podido crear la cuenta por algun error.';
+      }
     }
   }
 ?>
@@ -35,7 +40,7 @@
         <script src="JS/formulario.js"></script>
     </head>
     <body>
-        <?php echo $message ?>
+
         <div id="containerRegistro">
             <header>
                 <h1>Crear cuenta personal </h1>
@@ -56,6 +61,9 @@
             <input class="controles" type="email" placeholder="ejemplo@servidor.extension" id="email" name="email"/> <br />
             <label>Contraseña</label>
             <input class="controles" placeholder="Ingerese su contraseña (8 caracteres mínimo)" type="password" id="password" name="password"/> <br />
+            <?php if(!empty($message)): ?>
+            <p> <?= $message ?></p>
+            <?php endif; ?>
             <input class="botones" type="submit" value="Crear Cuenta" id="botonCrear"/>
             
             <!––antes de enviar a la base de datos, se comprueban que los datos son correctos -->

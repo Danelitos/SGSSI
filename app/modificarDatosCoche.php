@@ -46,11 +46,11 @@ if (!empty($_POST["botonModificar"])) {
         ?>
         <form class="formulario" method="POST">
             <label>Nombre</label>
-            <input class="controles" type="text" value=<?php echo $mostrar['Nombre'] ?> minlength="3" name="nombreCoche" /> <br />
+            <input class="controles" type="text" value="<?php echo $mostrar['Nombre'] ?>" minlength="3" name="nombreCoche" /> <br />
             <label>Marca</label>
-            <input class="controles" type="text" value=<?php echo $mostrar['Marca'] ?> minlength="3" name="marca" /> <br />
+            <input class="controles" type="text" value="<?php echo $mostrar['Marca'] ?>" minlength="3" name="marca" /> <br />
             <label>Color</label>
-            <input class="controles" type="text" value=<?php echo $mostrar['Color'] ?> name="color" /> <br />
+            <input class="controles" type="text" value="<?php echo $mostrar['Color'] ?>" name="color" /> <br />
             <label>Caballos</label>
             <input class="controles" type="text" value=<?php echo $mostrar['Caballos'] ?> pattern="[0-9]{3}" minlength="2" maxlength="3" name="caballos" /> <br />
             <label>Precio</label>
