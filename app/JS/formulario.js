@@ -1,6 +1,6 @@
 
 const entrar=true;
-const patTexto = new RegExp("^[a-zA-Z ]+$"); //solo texto
+const patTexto = new RegExp("^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$"); //solo texto
 
 var numero
 var letr
