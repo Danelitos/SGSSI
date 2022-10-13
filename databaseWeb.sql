@@ -29,9 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `coches` (
   `Id` bigint(20) NOT NULL,
-  `Nombre` varchar(30) NOT NULL,
-  `Marca` varchar(30) NOT NULL,
-  `Color` varchar(30) NOT NULL,
+  `Nombre` varchar(40) NOT NULL,
+  `Marca` varchar(40) NOT NULL,
+  `Color` varchar(40) NOT NULL,
   `Caballos` int(3) NOT NULL,
   `Precio` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -44,11 +44,11 @@ CREATE TABLE `coches` (
 
 CREATE TABLE `usuarios` (
   `Id` bigint(20) NOT NULL,
-  `Nombre` varchar(20) NOT NULL,
+  `Nombre` varchar(40) NOT NULL,
   `Apellidos` varchar(40) NOT NULL,
   `Dni` varchar(10) NOT NULL,
   `Telefono` varchar(9) NOT NULL,
-  `Email` varchar(30) NOT NULL,
+  `Email` varchar(50) NOT NULL,
   `Fecha_Ncto` date NOT NULL,
   `Contraseña` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
