@@ -86,6 +86,13 @@ ALTER TABLE `usuarios`
   MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
+-- Meter valores a la lista de coches --
+
+INSERT INTO `coches` (Nombre,Marca,Color,Caballos,Precio) VALUES ("Ibiza","Seat","Negro","120","5000");
+INSERT INTO `coches` (Nombre,Marca,Color,Caballos,Precio) VALUES ("Golf","Volkswagen","Azul","150","25000.50");
+INSERT INTO `coches` (Nombre,Marca,Color,Caballos,Precio) VALUES ("A3","Audi","Rojo","170","10500.99");
+INSERT INTO `coches` (Nombre,Marca,Color,Caballos,Precio) VALUES ("Clio","Renault","Blanco","90","4600.95");
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
