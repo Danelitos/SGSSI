@@ -14,15 +14,15 @@ if (!empty($_POST["botonCambiar"])){
             if ($contraseña==$Rcontraseña){
                 $sql = "UPDATE `usuarios` SET Contraseña='$contraseña' WHERE Id='$id'";
                 if (mysqli_query($conn,$sql)){
-                    echo '<div class="alert alert-danger">La contraseña se cambio con éxito</div>';
+                    $message = "La contraseña se cambio con éxito";
                 }
             }
             else{
-                echo '<div class="alert alert-danger">Contraseñas diferentes</div>';
+                $message = 'Contraseñas diferentes';
             }
         }
         else{
-            echo '<div class="alert alert-danger">EL CORREO NO EXISTE</div>';
+            $message = 'EL CORREO NO EXISTE';
         }
         
     }
@@ -36,24 +36,27 @@ if (!empty($_POST["botonCambiar"])){
         <title>Coches.eus</title>
         <link rel="stylesheet" href="CSS/estilo.css" />
         <link rel="icon" href="img/coche1.ico">
+        <script src="JS/formulario.js"></script>
     </head>
     <body>
         <div id="containerLogin">
             <header>
                 <h1>Cambio de contraseña</h1>
             </header>
-
-            <form class="formulario" method="POST">
+            <form class="formulario" method="POST" id="formulario">
                 <label>Correo electrónico</label>
-                <input class="controles" placeholder="ejemplo@servidor.extension" type="email" minlength="3" name="email"/> <br />
+                <input class="controles" placeholder="ejemplo@servidor.extension" type="email" id="email" minlength="3" name="email"/> <br />
                 <label>Contraseña nueva</label>
-                <input class="controles" placeholder="Ingerese su contraseña nueva (8 caracteres mínimo)" type="password" minlength="8" required name="password"/> <br />
+                <input class="controles" placeholder="Ingerese su contraseña nueva (8 caracteres mínimo)" type="password" id="password2" minlength="8" required name="password"/> <br />
                 <label>Repetir contraseña nueva</label>
-                <input class="controles" placeholder="Ingerese de nuevo su contraseña nueva (8 caracteres mínimo)" type="password" minlength="8" required name="Rpassword"/> <br />
-                <input class="botones" type="submit" value="Guardar Cambios" name="botonCambiar"/> <br />
+                <input class="controles" placeholder="Ingerese de nuevo su contraseña nueva (8 caracteres mínimo)" type="password" id="Rpassword" minlength="8" required name="Rpassword"/> <br />
+                <?php if(!empty($message)): ?>
+                <p> <?= $message ?></p>
+                <?php endif; ?>
+                <input class="botones" type="submit" value="Guardar Cambios" name="botonCambiar" id="botonCambiar"/> <br />
                 <a href="index.php"><p>Iniciar sesión</p></a> <br />
                 <a href="registro.php"><p>Crear una cuenta</p></a> <br />
-            </section>
+            </form>
         </div>
         <footer>
             &copy; 2022 Copyrigth: Coches.com

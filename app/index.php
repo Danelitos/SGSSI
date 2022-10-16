@@ -13,7 +13,7 @@ if (!empty($_POST["botonIniciar"])){
             header('location:coches.php');
         }
         else{
-            echo '<div class="alert alert-danger">ACCESO DENEGADO</div>';
+            $message='<div class="alert alert-danger">ACCESO DENEGADO</div>';
         }
     }
 }
@@ -41,6 +41,9 @@ $_SESSION["miSesion"][1]=$password;
                 <input class="controles" placeholder="ejemplo@servidor.extension" type="email" minlength="3" name="email"/> <br />
                 <label>Contraseña</label>
                 <input class="controles" placeholder="Ingerese su contraseña (8 caracteres mínimo)" type="password" minlength="8" required name="password"/> <br />
+                <?php if(!empty($message)): ?>
+                <p> <?= $message ?></p>
+                <?php endif; ?>
                 <input class="botones" type="submit" value="Iniciar sesión" name="botonIniciar"/> <br />
                 <a href="cambioContraseña.php"><p>¿Olvidaste la contraseña?</p></a> <br />
                 <a href="registro.php"><p>Crear una cuenta</p></a> <br />

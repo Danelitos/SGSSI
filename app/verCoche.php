@@ -2,10 +2,17 @@
 require 'conexion.php';
 $conn->set_charset("utf8");
 session_start();
+
+$id= $_GET["Id"];
+$coche = "SELECT * FROM coches WHERE Id = $id";
+
+
 ?>
 
 <!DOCTYPE html>
-    <head>
+<html>
+
+<head>
         <meta charset="utf-8">
         <link rel="icon" href="img/coche1.ico">
         <meta http-equiv="X-UA-Compatible" content="IE-edge">
@@ -15,12 +22,15 @@ session_start();
         <link rel="stylesheet" href="CSS/stylePaginaCoches.css" />
         <link rel="stylesheet" href="CSS/estiloListaCoches.css" />
         <script src="JS/confirmacion.js"></script>
-    </head>
-    <body>
-        <header>
+    
+</head>
+
+<body>
+    <header>
             <img class="logo" src="img/coche1.png" alt="">
             <nav>
                 <ul class="nav_links">
+                    <li><a href="coches.php">Inicio</a></li>
                     <li><a href="añadirCoche.php">Añadir Coche</a></li>
                 </ul>
             </nav>
@@ -32,33 +42,42 @@ session_start();
                 </div>
             </div>
         </header>
+
         <table>
-            <tr><th colspan="3"><h1>Catalogo Coches</h1></th></tr>
+            <tr><th colspan="7"><h1>Catalogo Coches</h1></th></tr>
             <tr>
+                
                 <td>Nombre</td>
                 <td>Marca</td>
-                <td>Visualizar</td>
-                
+                <td>Color</td>
+                <td>Caballos</td>
+                <td>Precio</td>
+                <td>Acción</td>
             </tr>
             <?php
-                $sql="SELECT * FROM `coches`";
-                $resultado=mysqli_query($conn,$sql);
+                
+                $resultado=mysqli_query($conn,$coche);
                 while($mostrar=mysqli_fetch_array($resultado)){
             ?>
             <tr>
                 
                 <td class="texto"><?php echo $mostrar['Nombre'] ?></td>
                 <td class="texto"><?php echo $mostrar['Marca'] ?></td>
-                
+                <td class="texto"><?php echo $mostrar['Color'] ?></td>
+                <td class="texto"><?php echo $mostrar['Caballos'] ?></td>
+                <td class="texto"><?php echo $mostrar['Precio'] ?></td>
+                <td class="botones"><a class="botonModificar" href="modificarDatosCoche.php?Id=<?php echo $mostrar['Id']; ?>">Modificar
 
-                <td><a class="botonVer" href="verCoche.php?Id=<?php echo $mostrar['Id']; ?>"><img class="logoLupa" src="img/lupa.png" alt=""></td>
-                
+                <a onclick="confirmacion(event)" class ="botonEliminar" href="eliminar.php?Id=<?php echo $mostrar['Id']; ?>"> <img class="logoPapelera" src="img/papelera.png" alt=""></td>
+
             </tr>
             <?php
                 }
             ?>
         </table>
-        <footer>
-            &copy; 2022 Copyrigth: Coches.com
-        </footer>
-    </body>
+    <footer>
+        &copy; 2022 Copyrigth: Coches.com
+    </footer>
+</body>
+
+</html>

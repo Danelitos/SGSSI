@@ -1,0 +1,70 @@
+body{
+    margin:0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: linear-gradient(to botton, #3380B5,white);
+
+}
+table{
+    margin:0;
+    border-collapse: collapse;
+    border: 1px solid black;
+    background: #1e91dd;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+}
+
+td{
+    padding: 10px 40px;
+    border: 1px solid black;
+    text-align: center;
+    background: grey;
+    font-weight: bold;
+}
+
+th{
+    padding: 10px;
+    border: 1px solid black;
+    background-color: #1e91dd;
+}
+
+.botonModificar{
+    color: white;
+    background-color: blue;
+    border-radius: 7px;
+    padding: 7px;
+    margin-right: 10px;
+}
+
+.botonEliminar{
+    color: white;
+    background-color: red;
+    border-radius: 10px;
+    padding: 7px;
+}
+
+.botonVer{
+    color: white;
+    background-color: rgb(168, 157, 1);
+    border-radius: 6px;
+    padding: 7px;
+    align-content: center;
+}
+
+td.texto{
+    font-weight: normal;
+}
+
+td.botones{
+    padding: 1px;
+}
+
+.logoPapelera{
+    width: 20px;
+}
+
+.logoLupa{
+    width: 20px;
+}
