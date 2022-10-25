@@ -28,7 +28,7 @@ session_start();
                 <a class="dropbtn" href="#"><button>Perfil</button></a>
                 <div class="dropdown-content">
                     <a href="modificarDatos.php">Modificar Datos</a>
-                    <a href="index.php">Cerrar sesión</a>
+                    <a href="cerrarSesion.php">Cerrar sesión</a>
                 </div>
             </div>
         </header>
