@@ -19,7 +19,6 @@ if (!empty($_POST["botonIniciar"])){
 }
 
 $_SESSION["miSesion"][0]=$correo;
-$_SESSION["miSesion"][1]=$password;
 
 ?>
 <!DOCTYPE html>
@@ -35,7 +34,7 @@ $_SESSION["miSesion"][1]=$password;
             <header>
                 <h1>Inicia sesión para comprar un coche</h1>
             </header>
-
+    
             <form class="formulario" method="POST">
                 <label>Correo electrónico</label>
                 <input class="controles" placeholder="ejemplo@servidor.extension" type="email" minlength="3" name="email"/> <br />
