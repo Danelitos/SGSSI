@@ -3,7 +3,12 @@
 require 'conexion.php';
 $conn->set_charset("utf8");
 session_start();
-$correoLogin = $_SESSION["miSesion"][0];
+session_start();
+if (!isset($_SESSION['miSesion'])){
+        header("Location:index.php");
+}
+
+$correoLogin = $_SESSION["miSesion"];
 $sqlCorreo = "SELECT * FROM `usuarios` WHERE Email='$correoLogin'";
 
 if (!empty($_POST["botonModificar"])) {
