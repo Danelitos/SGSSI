@@ -2,6 +2,12 @@
 require 'conexion.php';
 $conn->set_charset("utf8");
 session_start();
+session_start();
+if (!isset($_SESSION['miSesion'])){
+        header("Location:index.php");
+}
+
+
 
 $id= $_GET["Id"];
 $coche = "SELECT * FROM coches WHERE Id = $id";

@@ -19,9 +19,11 @@
       $message = 'El gmail introducido ya se encuentra registrado en la base de datos';}
     else{
 
-      $sql = "INSERT INTO `usuarios` (Nombre,Apellidos,Dni,Telefono,Email,Fecha_Ncto,Contraseña) VALUES (?,?,?,?,?,?,?)";
+      $sql = "INSERT INTO `usuarios` (Nombre,Apellidos,Dni,Telefono,Email,Fecha_Ncto,Contraseña,intentosFallidos,Estado) VALUES (?,?,?,?,?,?,?,?,?)";
       $stmt = $conn->prepare($sql);
-      $stmt->bind_param('sssssss', $nombre,$apellidos,$dni,$telefono,$email,$fechanacimiento,$password);
+      $intentos=0;
+      $estado="activo";
+      $stmt->bind_param('sssssssis', $nombre,$apellidos,$dni,$telefono,$email,$fechanacimiento,$password,$intentos,$estado);
       if ($stmt->execute()) {
         $message = 'La cuenta se ha creado correctamente.';
       } else {
