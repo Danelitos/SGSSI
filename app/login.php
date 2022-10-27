@@ -8,33 +8,36 @@ session_start();
 if (!empty($_POST["botonIniciar"])){
     if (!empty($_POST["email"]) and !empty($_POST["password"])){
         $correo=$_POST["email"];
-        $contraseña=$_POST["password"];
-        $sql=$conn->query("SELECT * FROM `usuarios` WHERE Email='$correo' AND Contraseña='$contraseña'");
-        
+        $password=$_POST["password"];
+        $sql=$conn->query("SELECT * FROM `usuarios` WHERE Email='$correo'");
         if ($datos=$sql->fetch_assoc()){
-            //comprobar estado de la cuenta
-            $estado = $datos['Estado'];
-            if ($estado=="inactivo"){ //cuenta inactiva
-                $message='<div class="alert alert-danger">CUENTA DESACTIVADA POR MOTIVOS DE SEGURIDAD</div>';
+            $salt=$datos['Salt'];
+            $contraseña=$datos['Contraseña'];
+            $hash = hash('sha512', $salt.$password);
+            if ($contraseña==$hash){
+                //comprobar estado de la cuenta
+                $estado = $datos['Estado'];
+                if ($estado=="inactivo"){ //cuenta inactiva
+                    $message='<div class="alert alert-danger">CUENTA DESACTIVADA POR MOTIVOS DE SEGURIDAD</div>';
+                }
+                else{
+                    //cuenta activa
+                    $_SESSION["miSesion"]=array();
+                    $_SESSION["miSesion"]=$correo; //cuando el inicio es correcto, se mete en la variable de session
+                
+                //añadimos log del intento de la entrada correcta
+                anadirLog($correo,"correcta");
+                header('location:coches.php');
+                }
             }
             else{
-                //cuenta activa
-                $_SESSION["miSesion"]=array();
-                $_SESSION["miSesion"]=$correo; //cuando el inicio es correcto, se mete en la variable de session
-            
-            //añadimos log del intento de la entrada correcta
-            anadirLog($correo,"correcta");
-            header('location:coches.php');
+                //añadimos el log fallido
+                $message='<div class="alert alert-danger">ACCESO DENEGADO</div>';
+                anadirLog($correo,"fallida");
             }
-            
         }
-        else{ //intento fallido (email o contraseña incorrectas)
-            
-            //añadimos el log fallido
-            $message='<div class="alert alert-danger">ACCESO DENEGADO</div>';
-            anadirLog($correo,"fallida");
-            
-            
+        else{
+            $message = 'NO EXISTE EL USUARIO';
         }
     }
 }

@@ -11,19 +11,19 @@
     $fechanacimiento=$_POST['fechanacimiento'];
     $email=$_POST['email'];
     $password = $_POST['password'];
-    //$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-
+    $salt = md5(uniqid(rand(), true)); // O incluso mejor si tuviese mayúsculas, minúsculas, caracteres especiales...
+    $contraseña = hash('sha512', $salt.$password); // Puede ponerse delante o detrás, es igual  
   
     $sql = $conn->query("SELECT Id FROM `usuarios` WHERE Email='$email'");
     if (mysqli_num_rows($sql) > 0) {
       $message = 'El gmail introducido ya se encuentra registrado en la base de datos';}
     else{
 
-      $sql = "INSERT INTO `usuarios` (Nombre,Apellidos,Dni,Telefono,Email,Fecha_Ncto,Contraseña,intentosFallidos,Estado) VALUES (?,?,?,?,?,?,?,?,?)";
+      $sql = "INSERT INTO `usuarios` (Nombre,Apellidos,Dni,Telefono,Email,Fecha_Ncto,Salt,Contraseña,intentosFallidos,Estado) VALUES (?,?,?,?,?,?,?,?,?,?)";
       $stmt = $conn->prepare($sql);
       $intentos=0;
       $estado="activo";
-      $stmt->bind_param('sssssssis', $nombre,$apellidos,$dni,$telefono,$email,$fechanacimiento,$password,$intentos,$estado);
+      $stmt->bind_param('ssssssssis', $nombre,$apellidos,$dni,$telefono,$email,$fechanacimiento,$salt,$contraseña,$intentos,$estado);
       if ($stmt->execute()) {
         $message = 'La cuenta se ha creado correctamente.';
       } else {

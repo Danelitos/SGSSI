@@ -12,7 +12,9 @@ if (!empty($_POST["botonCambiar"])){
             $result=$sql->fetch_assoc();
             $id=$result['Id'];
             if ($contraseña==$Rcontraseña){
-                $sql = "UPDATE `usuarios` SET Contraseña='$contraseña' WHERE Id='$id'";
+                $salt = md5(uniqid(rand(), true)); // O incluso mejor si tuviese mayúsculas, minúsculas, caracteres especiales...
+                $hash = hash('sha512', $salt.$contraseña); // Puede ponerse delante o detrás, es igual 
+                $sql = "UPDATE `usuarios` SET Contraseña='$hash',Salt='$salt' WHERE Id='$id'";
                 if (mysqli_query($conn,$sql)){
                     $message = "La contraseña se cambio con éxito";
                 }
