@@ -77,7 +77,8 @@ CREATE TABLE `usuarios` (
   `Telefono` varchar(9) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Fecha_Ncto` date NOT NULL,
-  `Contraseña` varchar(40) NOT NULL,
+  `Salt` varchar(100) NOT NULL,
+  `Contraseña` varchar(200) NOT NULL,
   `IntentosFallidos` int(11) NOT NULL,
   `Estado` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
