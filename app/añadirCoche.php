@@ -1,6 +1,10 @@
 <?php
 
   require 'conexion.php';
+  session_start();
+  if (!isset($_SESSION['miSesion'])){
+        header("Location:index.php");
+  } 
   $conn->set_charset("utf8");
 
   if (!empty($_POST['nombreCoche']) && !empty($_POST['marca']) && !empty($_POST['color']) && !empty($_POST['caballos']) && !empty($_POST['precio'])) {

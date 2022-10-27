@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: db
--- Tiempo de generación: 06-10-2022 a las 10:16:14
+-- Tiempo de generación: 26-10-2022 a las 20:26:35
 -- Versión del servidor: 10.8.2-MariaDB-1:10.8.2+maria~focal
 -- Versión de PHP: 8.0.19
 
@@ -36,6 +36,33 @@ CREATE TABLE `coches` (
   `Precio` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `coches`
+--
+
+INSERT INTO `coches` (`Id`, `Nombre`, `Marca`, `Color`, `Caballos`, `Precio`) VALUES
+(1, 'Ibiza', 'Seat', 'Negro', 120, '5000.00'),
+(2, 'Golf', 'Volkswagen', 'Azul', 150, '25000.50'),
+(3, 'A3', 'Audi', 'Rojo', 170, '10500.99'),
+(4, 'Clio', 'Renault', 'Blanco', 90, '4600.95');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `log`
+--
+
+CREATE TABLE `log` (
+  `correoUsuario` varchar(50) NOT NULL,
+  `entrada` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `log`
+--
+
+
+
 -- --------------------------------------------------------
 
 --
@@ -50,8 +77,17 @@ CREATE TABLE `usuarios` (
   `Telefono` varchar(9) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Fecha_Ncto` date NOT NULL,
-  `Contraseña` varchar(40) NOT NULL
+  `Salt` varchar(100) NOT NULL,
+  `Contraseña` varchar(200) NOT NULL,
+  `IntentosFallidos` int(11) NOT NULL,
+  `Estado` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+
 
 --
 -- Índices para tablas volcadas
@@ -77,21 +113,14 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `coches`
 --
 ALTER TABLE `coches`
-  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
-
--- Meter valores a la lista de coches --
-
-INSERT INTO `coches` (Nombre,Marca,Color,Caballos,Precio) VALUES ("Ibiza","Seat","Negro","120","5000");
-INSERT INTO `coches` (Nombre,Marca,Color,Caballos,Precio) VALUES ("Golf","Volkswagen","Azul","150","25000.50");
-INSERT INTO `coches` (Nombre,Marca,Color,Caballos,Precio) VALUES ("A3","Audi","Rojo","170","10500.99");
-INSERT INTO `coches` (Nombre,Marca,Color,Caballos,Precio) VALUES ("Clio","Renault","Blanco","90","4600.95");
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

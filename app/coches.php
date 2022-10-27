@@ -2,6 +2,10 @@
 require 'conexion.php';
 $conn->set_charset("utf8");
 session_start();
+session_start();
+    if (!isset($_SESSION['miSesion'])){
+        header("Location:index.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +32,7 @@ session_start();
                 <a class="dropbtn" href="#"><button>Perfil</button></a>
                 <div class="dropdown-content">
                     <a href="modificarDatos.php">Modificar Datos</a>
-                    <a href="index.php">Cerrar sesión</a>
+                    <a href="cerrarSesion.php">Cerrar sesión</a>
                 </div>
             </div>
         </header>
