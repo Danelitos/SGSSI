@@ -9,7 +9,7 @@ var expresion_regular_dni
 
 expresion_regular_dni = /^\d{8}[-][a-zA-Z]$/;
 exprEmail= /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-
+exprPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}/;
 
 function validarFormulario(){
     let nombre= document.getElementById("nombre").value;
@@ -100,8 +100,15 @@ function validarFormulario(){
         return false;
     }
 
-    if (password==null || password=='' || password.length<8){
-        alert('Contraseña erronea, formato no válido');
+    if (password==null || password=='' || !exprPassword.test(password)){
+        /*Minimo 8 caracteres
+        Maximo 15
+        Al menos una letra mayúscula
+        Al menos una letra minuscula
+        Al menos un dígito
+        No espacios en blanco
+        Al menos 1 caracter especial*/
+        alert('Contraseña erronea\n - Minimo 8 caracteres \n - Maximo 15 \n - Al menos una letra mayúscula \n - Al menos una letra minúscula \n - Al menos un dígito \n - No espacios en blanco \n - Al menos 1 caracter especial');
         return false;
     }
     
@@ -109,32 +116,3 @@ function validarFormulario(){
     
     
 }
-
-/*
-function validarContraseña(){
-    console.log("hola");
-    const email= document.getElementById('email').value;
-    const password= document.getElementById('password').value;
-    const Rpassword= document.getElementById('Rpassword').value;
-    consog.log(password);
-
-    if (email==null || email== '' || !exprEmail.test(email)){
-        alert('Email erroneo, formato no válido');
-        return false;
-    }
-
-    if (password==null || password=='' || password.length<8){
-        alert('Contraseña erronea, formato no válido');
-        return false;
-    }
-
-    if (Rpassword==null || Rpassword=='' || Rpassword.length<8){
-        alert('Contraseña erronea, formato no válido');
-        return false;
-    }
-    
-    return true;
- 
-    
-}
-*/
