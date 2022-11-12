@@ -1,20 +1,20 @@
 <?php
     
-    function anadirLog($correo,$entrada){ 
+    function anadirLog($correo,$entrada,$fechaHora){ 
         require 'conexion.php';
         $conn->set_charset("utf8");  
-        $sql = "INSERT INTO `log` (correoUsuario,entrada) VALUES (?,?)";
+        $sql = "INSERT INTO `log` (correoUsuario,entrada,fechaHora) VALUES (?,?,?)";
         $stmt = $conn->prepare($sql);
         $intentos=0;
         $estado="activo";
-        $stmt->bind_param('ss', $correo,$entrada);
+        $stmt->bind_param('sss', $correo,$entrada,$fechaHora);
         $stmt->execute();
 
         if ($entrada=="fallida"){ //añadir intento fallido al usuario
             $sql="UPDATE usuarios SET IntentosFallidos=IntentosFallidos+1 WHERE Email='$correo'";
 
             if (mysqli_query($conn, $sql)) {
-                echo "<script> alert('Intento fallido añadido') </script>";
+                echo "<script> alert('Intento fallido añadido(MAX. 3)') </script>";
             } else {
                 echo "<script> alert('Error al meter el log') </script>";
             }
@@ -37,6 +37,15 @@
                 }
             }
 
+        }
+        
+        else{ // reiniciar los intentos fallidos a 0 
+            $sql="UPDATE usuarios SET IntentosFallidos=0 WHERE Email='$correo'";
+            if (mysqli_query($conn, $sql)) {
+                
+            } else {
+                echo "<script> alert('Error al meter el log') </script>";
+            }
         }
 
         return true;
