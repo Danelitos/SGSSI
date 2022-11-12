@@ -40,6 +40,7 @@
         <link rel="stylesheet" href="CSS/estilo.css" />
         <link rel="icon" href="img/coche1.ico">
         <script src="JS/formulario.js"></script>
+        <script type="text/javascript" src="/JS/evitarReenvio.js"></script>
     </head>
     <body>
 

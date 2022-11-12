@@ -14,6 +14,12 @@ if (!empty($_POST["botonIniciar"])){
             $salt=$datos['Salt'];
             $contraseña=$datos['Contraseña'];
             $hash = hash('sha512', $salt.$password);
+
+            //cogemos la fecha y hora actual
+            date_default_timezone_set('Europe/Madrid');
+            $fechaHora= date('Y-m-d H:i:s');
+
+
             if ($contraseña==$hash){
                 //comprobar estado de la cuenta
                 $estado = $datos['Estado'];
@@ -25,15 +31,16 @@ if (!empty($_POST["botonIniciar"])){
                     $_SESSION["miSesion"]=array();
                     $_SESSION["miSesion"]=$correo; //cuando el inicio es correcto, se mete en la variable de session
                 
-                //añadimos log del intento de la entrada correcta
-                anadirLog($correo,"correcta");
-                header('location:coches.php');
+                    //añadimos log del intento de la entrada correcta
+                    anadirLog($correo,"correcta",$fechaHora);
+                    header('location:coches.php');
                 }
             }
             else{
                 //añadimos el log fallido
                 $message='<div class="alert alert-danger">ACCESO DENEGADO</div>';
-                anadirLog($correo,"fallida");
+                anadirLog($correo,"fallida",$fechaHora);
+                
             }
         }
         else{
@@ -52,6 +59,7 @@ if (!empty($_POST["botonIniciar"])){
         <title>Coches.eus</title>
         <link rel="stylesheet" href="CSS/estilo.css" />
         <link rel="icon" href="img/coche1.ico">
+        <script type="text/javascript" src="/JS/evitarReenvio.js"></script>
     </head>
     <body>
         <div id="containerLogin">
