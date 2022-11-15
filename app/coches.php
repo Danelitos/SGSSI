@@ -1,16 +1,19 @@
 <?php
+include("funciones.php");
 require 'conexion.php';
 $conn->set_charset("utf8");
-session_start();
 session_start();
     if (!isset($_SESSION['miSesion'])){
         header("Location:index.php");
     }
-?>
+  timeOut();
+    
+   ?>
 
 <!DOCTYPE html>
     <head>
         <meta charset="utf-8">
+        <meta http-equiv="Refresh" content="120">
         <link rel="icon" href="img/coche1.ico">
         <meta http-equiv="X-UA-Compatible" content="IE-edge">
         <title>Coches.eus</title>

@@ -1,5 +1,5 @@
 <?php
-
+include("funciones.php");
 require 'conexion.php';
 $conn->set_charset("utf8");
 session_start();
@@ -7,6 +7,7 @@ session_start();
 if (!isset($_SESSION['miSesion'])){
         header("Location:index.php");
 }
+timeOut();
 
 $correoLogin = $_SESSION["miSesion"];
 $sqlCorreo = "SELECT * FROM `usuarios` WHERE Email='$correoLogin'";
@@ -41,6 +42,7 @@ if (!empty($_POST["botonModificar"])) {
 <html>
 
 <head>
+    <meta http-equiv="Refresh" content="120">
     <meta charset="utf-8" />
     <title>Coches.eus</title>
     <link rel="stylesheet" href="CSS/estilo.css" />
