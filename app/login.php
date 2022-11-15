@@ -30,9 +30,9 @@ if (!empty($_POST["botonIniciar"])){
                     //cuenta activa
                     $_SESSION["miSesion"]=array();
                     $_SESSION["miSesion"]=$correo; //cuando el inicio es correcto, se mete en la variable de session
-                
+            
                     //añadimos log del intento de la entrada correcta
-                    anadirLog($correo,"correcta",$fechaHora);
+                    anadirLog($sessionId,$correo,"correcta",$fechaHora);
                     header('location:coches.php');
                 }
             }
