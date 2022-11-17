@@ -1,6 +1,7 @@
 <?php
 require 'conexion.php';
 include("funciones.php");
+include("log/gestionLog.php");
 $conn->set_charset("utf8");
 session_start();
 
@@ -33,14 +34,14 @@ if (!empty($_POST["botonIniciar"])){
                     $_SESSION["token"] = md5(uniqid(mt_rand(), true)); //cuando el inicio es correcto, se crea un TOKEN de sesión
                 
                     //añadimos log del intento de la entrada correcta
-                    anadirLog($sessionId,$correo,"correcta",$fechaHora);
+                    anadirLogin($correo,"correcto",$fechaHora);
                     header('location:coches.php');
                 }
             }
             else{
                 //añadimos el log fallido
                 $message='<div class="alert alert-danger">ACCESO DENEGADO</div>';
-                anadirLog($correo,"fallida",$fechaHora);
+                anadirLogin($correo,"fallido",$fechaHora);
                 
             }
         }

@@ -1,0 +1,8 @@
+ARCHIVO LOGS
+2022-11-17 14:53:55  172.17.0.1  adrian@gmail.com  Inicio de sesion correcto
+2022-11-17 14:54:28  172.17.0.1  adrian@gmail.com  Inicio de sesion fallido
+2022-11-17 14:54:35  172.17.0.1  adrian@gmail.com  Inicio de sesion correcto
+2022-11-17 15:19:42  172.17.0.1  adrian@gmail.com  Inicio de sesion correcto
+2022-11-17 15:21:03  172.17.0.1  adrian@gmail.com  Inicio de sesion correcto
+2022-11-17 15:23:16  172.17.0.1  adrian@gmail.com  Inicio de sesion correcto
+2022-11-17 15:28:33  172.17.0.1  adrian@gmail.com  Inicio de sesion correcto

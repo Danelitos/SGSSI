@@ -61,7 +61,7 @@
             <label>Fecha de nacimiento</label>
             <input class="controles"  type="text" placeholder="Ejemplo: 2008-12-12" id="fechanacimiento" name="fechanacimiento"/> <br />
             <label>Correo electrónico</label>
-            <input class="controles" type="email" placeholder="ejemplo@servidor.extension" id="email" name="email"/> <br />
+            <input class="controles" type="text" placeholder="ejemplo@servidor.extension" id="email" name="email"/> <br />
             <label>Contraseña</label>
             <input class="controles" placeholder="Ingerese su contraseña (8 caracteres mínimo)" type="password" id="password" name="password"/> <br />
             <?php if(!empty($message)): ?>
