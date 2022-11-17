@@ -1,10 +1,11 @@
 <?php
-
+  include("funciones.php");
   require 'conexion.php';
   session_start();
   if (!isset($_SESSION['miSesion']) && $_GET["csrf"] == $_SESSION["token"]){
         header("Location:index.php");
   } 
+  timeOut();
   $conn->set_charset("utf8");
 
   if (!empty($_POST['nombreCoche']) && !empty($_POST['marca']) && !empty($_POST['color']) && !empty($_POST['caballos']) && !empty($_POST['precio'])) {
@@ -32,6 +33,7 @@
 <html>
 
 <head>
+  <meta http-equiv="Refresh" content="120">
     <meta charset="utf-8" />
     <title>Coches.eus</title>
     <link rel="stylesheet" href="CSS/estilo.css" />

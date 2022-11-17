@@ -33,7 +33,7 @@ if (!empty($_POST["botonIniciar"])){
                     $_SESSION["token"] = md5(uniqid(mt_rand(), true)); //cuando el inicio es correcto, se crea un TOKEN de sesión
                 
                     //añadimos log del intento de la entrada correcta
-                    anadirLog($correo,"correcta",$fechaHora);
+                    anadirLog($sessionId,$correo,"correcta",$fechaHora);
                     header('location:coches.php');
                 }
             }
