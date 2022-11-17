@@ -30,6 +30,7 @@ if (!empty($_POST["botonIniciar"])){
                     //cuenta activa
                     $_SESSION["miSesion"]=array();
                     $_SESSION["miSesion"]=$correo; //cuando el inicio es correcto, se mete en la variable de session
+                    $_SESSION["token"] = md5(uniqid(mt_rand(), true)); //cuando el inicio es correcto, se crea un TOKEN de sesión
                 
                     //añadimos log del intento de la entrada correcta
                     anadirLog($correo,"correcta",$fechaHora);

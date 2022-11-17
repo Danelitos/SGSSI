@@ -3,9 +3,9 @@ require 'conexion.php';
 $conn->set_charset("utf8");
 session_start();
 session_start();
-    if (!isset($_SESSION['miSesion'])){
-        header("Location:index.php");
-    }
+if (!isset($_SESSION['miSesion']) && !isset($_SESSION['token'])){
+    header("Location:index.php");
+} 
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +13,7 @@ session_start();
         <meta charset="utf-8">
         <link rel="icon" href="img/coche1.ico">
         <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta http-equiv="Refresh" content="10";<a href="login.php"></a>>
         <title>Coches.eus</title>
         <meta name="description" content="">
         <meta name="viewport" content="widht=device-width, initial-sacle=1">

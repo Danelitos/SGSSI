@@ -4,9 +4,9 @@ require 'conexion.php';
 $conn->set_charset("utf8");
 session_start();
 session_start();
-if (!isset($_SESSION['miSesion'])){
-        header("Location:index.php");
-}
+if (!isset($_SESSION['miSesion']) && $_GET["csrf"] == $_SESSION["token"]){
+    header("Location:index.php");
+} 
 
 $correoLogin = $_SESSION["miSesion"];
 $sqlCorreo = "SELECT * FROM `usuarios` WHERE Email='$correoLogin'";
@@ -75,6 +75,7 @@ if (!empty($_POST["botonModificar"])) {
             <input class="controles" placeholder="ejemplo@servidor.extension" type="email" value=<?php echo $atributo['Email'] ?> id="email" name="email"/> <br />
             <label>Contraseña</label>
             <input class="controles" placeholder="Ingerese su contraseña (8 caracteres mínimo)" type="password" id="password" name="password"/> <br />
+            <input type="hidden" name="csrf" value="<?php echo $_SESSION["token"]; ?>">
             <?php if(!empty($message)): ?>
             <p> <?= $message ?></p>
             <?php endif; ?>
