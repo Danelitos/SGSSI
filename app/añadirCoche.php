@@ -33,7 +33,7 @@
 <html>
 
 <head>
-  <meta http-equiv="Refresh" content="120">
+  <meta http-equiv="Refresh" content="122">
     <meta charset="utf-8" />
     <title>Coches.eus</title>
     <link rel="stylesheet" href="CSS/estilo.css" />
@@ -45,10 +45,6 @@
         <header>
             <h1>Añadir coche </h1>
         </header>
-        <?php 
-        echo $_GET["csrf"];
-        echo $_SESSION["token"]
-         ?>
         <form class="formulario" method="POST">
             <label>Nombre</label>
             <input class="controles" placeholder="Ingerese el nombre" type="text" minlength="3" name="nombreCoche" /> <br />

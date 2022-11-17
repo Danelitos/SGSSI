@@ -16,7 +16,7 @@ timeOut();
         <meta http-equiv="Refresh" content="120">
         <link rel="icon" href="img/coche1.ico">
         <meta http-equiv="X-UA-Compatible" content="IE-edge">
-        <meta http-equiv="Refresh" content="10";<a href="login.php"></a>>
+        <!-- <meta http-equiv="Refresh" content="10";<a href="login.php"></a>> -->
         <title>Coches.eus</title>
         <meta name="description" content="">
         <meta name="viewport" content="widht=device-width, initial-sacle=1">
