@@ -9,7 +9,7 @@
             //Calculamos tiempo de vida inactivo.
             $vida_session = time() - $_SESSION['tiempo'];
         
-                //Compraración para redirigir página, si la vida de sesión sea mayor a el tiempo insertado en inactivo.
+                //Compraración para redirigir página
                 if($vida_session > $inactivo)
                 {
                     //Removemos sesión.
