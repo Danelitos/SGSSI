@@ -1,6 +1,7 @@
 <?php
 require 'conexion.php';
 include("funciones.php");
+include("log/gestionLog.php");
 $conn->set_charset("utf8");
 session_start();
 
@@ -14,6 +15,12 @@ if (!empty($_POST["botonIniciar"])){
             $salt=$datos['Salt'];
             $contraseña=$datos['Contraseña'];
             $hash = hash('sha512', $salt.$password);
+
+            //cogemos la fecha y hora actual
+            date_default_timezone_set('Europe/Madrid');
+            $fechaHora= date('Y-m-d H:i:s');
+
+
             if ($contraseña==$hash){
                 //comprobar estado de la cuenta
                 $estado = $datos['Estado'];
@@ -24,16 +31,18 @@ if (!empty($_POST["botonIniciar"])){
                     //cuenta activa
                     $_SESSION["miSesion"]=array();
                     $_SESSION["miSesion"]=$correo; //cuando el inicio es correcto, se mete en la variable de session
+                    $_SESSION["token"] = md5(uniqid(mt_rand(), true)); //cuando el inicio es correcto, se crea un TOKEN de sesión
                 
-                //añadimos log del intento de la entrada correcta
-                anadirLog($correo,"correcta");
-                header('location:coches.php');
+                    //añadimos log del intento de la entrada correcta
+                    anadirLogin($correo,"correcto",$fechaHora);
+                    header('location:coches.php');
                 }
             }
             else{
                 //añadimos el log fallido
                 $message='<div class="alert alert-danger">ACCESO DENEGADO</div>';
-                anadirLog($correo,"fallida");
+                anadirLogin($correo,"fallido",$fechaHora);
+                
             }
         }
         else{
@@ -52,6 +61,7 @@ if (!empty($_POST["botonIniciar"])){
         <title>Coches.eus</title>
         <link rel="stylesheet" href="CSS/estilo.css" />
         <link rel="icon" href="img/coche1.ico">
+        <script type="text/javascript" src="/JS/evitarReenvio.js"></script>
     </head>
     <body>
         <div id="containerLogin">

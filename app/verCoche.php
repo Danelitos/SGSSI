@@ -1,12 +1,13 @@
 <?php
+include("funciones.php");
 require 'conexion.php';
 $conn->set_charset("utf8");
 session_start();
 session_start();
-if (!isset($_SESSION['miSesion'])){
+if (!isset($_SESSION['miSesion']) && !isset($_SESSION['token'])){
         header("Location:index.php");
 }
-
+timeOut();
 
 
 $id= $_GET["Id"];
@@ -19,6 +20,7 @@ $coche = "SELECT * FROM coches WHERE Id = $id";
 <html>
 
 <head>
+    <meta http-equiv="Refresh" content="120">
         <meta charset="utf-8">
         <link rel="icon" href="img/coche1.ico">
         <meta http-equiv="X-UA-Compatible" content="IE-edge">

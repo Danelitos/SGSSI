@@ -1,11 +1,11 @@
 <?php
-
+include("funciones.php");
 require 'conexion.php';
 session_start();
-if (!isset($_SESSION['miSesion'])){
+if (!isset($_SESSION['miSesion']) && $_GET["csrf"] == $_SESSION["token"]){
         header("Location:index.php");
 }
-
+timeOut();
 
 $conn->set_charset("utf8");
 $id=$_GET["Id"];
@@ -34,6 +34,7 @@ if (!empty($_POST["botonModificar"])) {
 <html>
 
 <head>
+    <meta http-equiv="Refresh" content="120">
     <meta charset="utf-8" />
     <title>Coches.eus</title>
     <link rel="stylesheet" href="CSS/estilo.css" />
@@ -61,6 +62,7 @@ if (!empty($_POST["botonModificar"])) {
             <input class="controles" type="text" value=<?php echo $mostrar['Caballos'] ?> pattern="[0-9]{3}" minlength="2" maxlength="3" name="caballos" /> <br />
             <label>Precio</label>
             <input class="controles" type="text" value=<?php echo $mostrar['Precio'] ?> pattern="[0-9]{6}\,[0-9]{2}" minlength="2" maxlength="9" name="precio" /> <br />
+            <input type="hidden" name="csrf" value="<?php echo $_SESSION["token"]; ?>">
             <input class="botones" type="submit" value="Actualizar datos" name="botonModificar" />
             <a href="coches.php"><p>Volver</p></a>
         </form>

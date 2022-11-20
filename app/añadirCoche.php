@@ -1,10 +1,11 @@
 <?php
-
+  include("funciones.php");
   require 'conexion.php';
   session_start();
-  if (!isset($_SESSION['miSesion'])){
+  if (!isset($_SESSION['miSesion']) && $_GET["csrf"] == $_SESSION["token"]){
         header("Location:index.php");
   } 
+  timeOut();
   $conn->set_charset("utf8");
 
   if (!empty($_POST['nombreCoche']) && !empty($_POST['marca']) && !empty($_POST['color']) && !empty($_POST['caballos']) && !empty($_POST['precio'])) {
@@ -32,6 +33,7 @@
 <html>
 
 <head>
+  <meta http-equiv="Refresh" content="122">
     <meta charset="utf-8" />
     <title>Coches.eus</title>
     <link rel="stylesheet" href="CSS/estilo.css" />
@@ -43,7 +45,6 @@
         <header>
             <h1>Añadir coche </h1>
         </header>
-
         <form class="formulario" method="POST">
             <label>Nombre</label>
             <input class="controles" placeholder="Ingerese el nombre" type="text" minlength="3" name="nombreCoche" /> <br />
@@ -55,6 +56,7 @@
             <input class="controles" placeholder="Ingerese los caballos" type="text" pattern="[0-9]{3}" minlength="2" maxlength="3" name="caballos" /> <br />
             <label>Precio</label>
             <input class="controles" placeholder="Ingerese el precio" type="text" pattern="[0-9]{6}\,[0-9]{2}" minlength="2" name="precio" /> <br />
+            <input type="hidden" name="csrf" value="<?php echo $_SESSION["token"]; ?>">
             <?php if(!empty($message)): ?>
             <p> <?= $message ?></p>
             <?php endif; ?>

@@ -1,12 +1,13 @@
 <?php
-
+include("funciones.php");
 require 'conexion.php';
 $conn->set_charset("utf8");
 session_start();
 session_start();
-if (!isset($_SESSION['miSesion'])){
+if (!isset($_SESSION['miSesion']) && $_GET["csrf"] == $_SESSION["token"]){
         header("Location:index.php");
 }
+timeOut();
 
 $correoLogin = $_SESSION["miSesion"];
 $sqlCorreo = "SELECT * FROM `usuarios` WHERE Email='$correoLogin'";
@@ -19,14 +20,15 @@ if (!empty($_POST["botonModificar"])) {
     $fechanacimiento = $_POST['fechanacimiento'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    //$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $salt = md5(uniqid(rand(), true)); // O incluso mejor si tuviese mayúsculas, minúsculas, caracteres especiales...
+    $contraseña = hash('sha512', $salt.$password); // Puede ponerse delante o detrás, es igual  
 
 
     $sql = $conn->query("SELECT Id FROM `usuarios` WHERE Email='$correoLogin'");
     if (mysqli_num_rows($sql) > 0) {
         $result = $sql->fetch_assoc();
         $id = $result['Id'];
-        $sql = "UPDATE `usuarios` SET Nombre='$nombre',Apellidos='$apellidos',Dni='$dni',Telefono='$telefono',Email='$email',Fecha_Ncto='$fechanacimiento',Contraseña='$password' WHERE Id='$id'";
+        $sql = "UPDATE `usuarios` SET Nombre='$nombre',Apellidos='$apellidos',Dni='$dni',Telefono='$telefono',Email='$email',Fecha_Ncto='$fechanacimiento',Salt='$salt',Contraseña='$contraseña' WHERE Id='$id'";
         if (mysqli_query($conn, $sql)) {
             $message='<div class="alert alert-danger">Datos modificados con éxito</div>';
         } else {
@@ -40,6 +42,7 @@ if (!empty($_POST["botonModificar"])) {
 <html>
 
 <head>
+    <meta http-equiv="Refresh" content="120">
     <meta charset="utf-8" />
     <title>Coches.eus</title>
     <link rel="stylesheet" href="CSS/estilo.css" />
@@ -73,7 +76,8 @@ if (!empty($_POST["botonModificar"])) {
             <label>Correo electrónico</label>
             <input class="controles" placeholder="ejemplo@servidor.extension" type="email" value=<?php echo $atributo['Email'] ?> id="email" name="email"/> <br />
             <label>Contraseña</label>
-            <input class="controles" placeholder="Ingerese su contraseña (8 caracteres mínimo)" type="password" value=<?php echo $atributo['Contraseña'] ?> id="password" name="password"/> <br />
+            <input class="controles" placeholder="Ingerese su contraseña (8 caracteres mínimo)" type="password" id="password" name="password"/> <br />
+            <input type="hidden" name="csrf" value="<?php echo $_SESSION["token"]; ?>">
             <?php if(!empty($message)): ?>
             <p> <?= $message ?></p>
             <?php endif; ?>

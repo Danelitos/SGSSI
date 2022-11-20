@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: db
--- Tiempo de generación: 26-10-2022 a las 20:26:35
+-- Tiempo de generación: 17-11-2022 a las 14:30:21
 -- Versión del servidor: 10.8.2-MariaDB-1:10.8.2+maria~focal
 -- Versión de PHP: 8.0.19
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `databaseWeb`
+-- Base de datos: `database`
 --
 
 -- --------------------------------------------------------
@@ -41,27 +41,10 @@ CREATE TABLE `coches` (
 --
 
 INSERT INTO `coches` (`Id`, `Nombre`, `Marca`, `Color`, `Caballos`, `Precio`) VALUES
-(1, 'Ibiza', 'Seat', 'Negro', 120, '5000.00'),
+(1, 'Ibiza', 'Seat', 'Negro', 121, '5000.00'),
 (2, 'Golf', 'Volkswagen', 'Azul', 150, '25000.50'),
 (3, 'A3', 'Audi', 'Rojo', 170, '10500.99'),
 (4, 'Clio', 'Renault', 'Blanco', 90, '4600.95');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `log`
---
-
-CREATE TABLE `log` (
-  `correoUsuario` varchar(50) NOT NULL,
-  `entrada` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `log`
---
-
-
 
 -- --------------------------------------------------------
 
@@ -87,7 +70,10 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-
+INSERT INTO `usuarios` (`Id`, `Nombre`, `Apellidos`, `Dni`, `Telefono`, `Email`, `Fecha_Ncto`, `Salt`, `Contraseña`, `IntentosFallidos`, `Estado`) VALUES
+(6, 'Adrian', 'Cuadron Cortes', '79136554-V', '612345678', 'adrian@gmail.com', '2002-08-02', '5767e3b26359183f7b46646c4b28a474', '7426782644d861d077ab5820b46a12622710f3d6c55fe2fd4e7f018409d74ca04f72eb8c39476c3ba9c208a288865cf53036a7183854f27722fbaa8b3f72d73b', 0, 'activo'),
+(7, 'SERGIO', 'CORTÉS', '79299377-T', '987654321', 'Sergio@gmail.com', '2000-08-02', 'c33d18139f71454a6e1986596bdff097', '4bb04204207c728ddc1d4ff6b8b2b2de548c594ed95b9786e5646b42c65367ee615032c264dadc01b08f18517c274f8214309fbb1f1af464dd076e08fefcfddb', 1, 'activo'),
+(8, 'jose', 'garcia', '79136554-V', '987654321', 'jose@gmail.com', '1990-08-02', 'c12bf41d149630b4aa73e3b9e31d5cb8', '23bffb983730882eddbc6a06644174022d240240034d90555161a5618af964b9a40fe1d312d9ee36afc144fab93c1ae09dc1b493cf52403f5068008f597427b2', 0, 'activo');
 
 --
 -- Índices para tablas volcadas
@@ -113,13 +99,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `coches`
 --
 ALTER TABLE `coches`
-  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
